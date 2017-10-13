@@ -5,6 +5,7 @@
 #include <memory>
 #include <fstream>
 #include <string>
+#include <queue>
 
 #define MAXV 50
 #define MAXDEGREE 50
@@ -85,6 +86,69 @@ void WriteGraph(std::shared_ptr<Graph>& graphPtr, std::fstream& outStream, bool 
     }
 }
 
+void discoverVertex(int vertex)
+{
+  // When the vertex is discovered
+}
+
+void processVertex(int vertex)
+{
+  // When the vertex is processed.
+}
+
+void processEdge()
+{
+  // When the edge is processed.
+}
+
+void initializeSearch(bool discovered[MAXV], bool processed[MAXV], int parent[MAXV])
+{
+  for (int index = 0; index < MAXV; index++)
+  {
+    discovered[index] = processed[index] = false;
+    parent[index] = -1;
+  }
+}
+
+void bfs(std::shared_ptr<Graph>& graph, int root)
+{
+  std::queue<int> queue;
+  bool discovered[MAXV];
+  bool processed[MAXV];
+  int parent[MAXV];
+
+  initializeSearch(discovered, processed, parent);
+
+  queue.push(root);
+  discoverVertex(root);
+  discovered[root] = true;
+
+  while (!queue.empty())
+  {
+    int vertex = queue.front();
+    queue.pop();
+
+    for (int index = 0; index < graph->degree[vertex]; index++)
+    {
+      if (discovered[graph->edges[vertex][index]] == false)
+      {
+        discoverVertex(graph->edges[vertex][index]);
+        discovered[graph->edges[vertex][index]] = true;
+
+        parent[graph->edges[vertex][index]] = vertex;
+        queue.push(graph->edges[vertex][index]);
+      }
+
+      // Discoverted is always true at this point
+      if (processed[graph->edges[vertex][index]] == false)
+        processEdge();
+    }
+
+    processed[vertex] = true;
+    processVertex(vertex);
+  }
+}
+
 int main()
 {
   std::shared_ptr<Graph> graphPtr = std::make_shared<Graph>();
@@ -95,9 +159,14 @@ int main()
   std::string file("E:\\Data\\data-1.txt");
   ReadGraph(graphPtr, numRows, file, isDirected);
 
+  /*
   std::fstream outStream("E:\\Data\\outData.txt", std::ios_base::out);
   WriteGraph(graphPtr, outStream, isDirected);
   outStream.close();
+  */
+
+  int root = 0;
+  bfs(graphPtr, root);
 
   return 0;
 }
