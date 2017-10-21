@@ -6,10 +6,12 @@
 #include <fstream>
 #include <string>
 #include <queue>
+#include <iostream>
 
 #define MAXV 50
 #define MAXDEGREE 50
 
+// TODO: Define valid edge
 typedef struct Graph {
 
   int edges[MAXV + 1][MAXDEGREE];
@@ -93,6 +95,8 @@ void discoverVertex(int vertex)
 
 void processVertex(int vertex)
 {
+  std::cout << "Vertex: ";
+  std::cout << vertex << std::endl;
   // When the vertex is processed.
 }
 
@@ -167,6 +171,9 @@ int main()
 
   int root = 0;
   bfs(graphPtr, root);
+
+  int dummy;
+  std::cin >> dummy;
 
   return 0;
 }
