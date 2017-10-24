@@ -11,7 +11,7 @@
 #define MAXV 50
 #define MAXDEGREE 50
 
-// TODO: Define valid edge
+// TODO: Define valid edge array.
 typedef struct Graph {
 
   int edges[MAXV + 1][MAXDEGREE];
