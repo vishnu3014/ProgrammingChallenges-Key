@@ -7,6 +7,7 @@
 #include <string>
 #include <queue>
 #include <iostream>
+#include <stack>
 
 #define MAXV 50
 #define MAXDEGREE 50
@@ -100,7 +101,7 @@ void processVertex(int vertex)
   // When the vertex is processed.
 }
 
-void processEdge()
+void processEdge(int fromV, int toV)
 {
   // When the edge is processed.
 }
@@ -145,7 +146,45 @@ void bfs(std::shared_ptr<Graph>& graph, int root)
 
       // Discoverted is always true at this point
       if (processed[graph->edges[vertex][index]] == false)
-        processEdge();
+        processEdge(vertex, index);
+    }
+
+    processed[vertex] = true;
+    processVertex(vertex);
+  }
+}
+
+void dfs(std::shared_ptr<Graph>& graph, int root)
+{
+	std::stack<int> stack;
+	bool discovered[MAXV];
+	bool processed[MAXV];
+	int parent[MAXV];
+
+	initializeSearch(discovered, processed, parent);
+  
+  stack.push(root);
+  discovered[root] = true;
+  discoverVertex(root);
+
+  while (!stack.empty())
+  {
+    int vertex = stack.top();
+    stack.pop();
+
+    for (int index = 0; index < graph->degree[vertex]; index++)
+    {
+      if (discovered[graph->edges[vertex][index]] == false)
+      {
+        discovered[graph->edges[vertex][index]] == true;
+        discoverVertex(graph->edges[vertex][index]);
+
+        stack.push(graph->edges[vertex][index]);
+        parent[graph->edges[vertex][index]] = vertex;
+      }
+
+      if (processed[graph->edges[vertex][index]] == false)
+        processEdge(vertex, index);
     }
 
     processed[vertex] = true;
