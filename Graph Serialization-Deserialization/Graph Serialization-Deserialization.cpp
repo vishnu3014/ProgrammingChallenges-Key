@@ -8,6 +8,7 @@
 #include <queue>
 #include <iostream>
 #include <stack>
+#include "Bicoloring.h"
 
 #define MAXV 50
 #define MAXDEGREE 50
@@ -194,84 +195,33 @@ void dfs(std::shared_ptr<Graph>& graph, int root)
 
 int main()
 {
-  std::shared_ptr<Graph> graphPtr = std::make_shared<Graph>();
-  InitializeGraph(graphPtr);
-  bool isDirected = false;
+  //std::shared_ptr<Graph> graphPtr = std::make_shared<Graph>();
+  //InitializeGraph(graphPtr);
+  //bool isDirected = false;
 
-  int numRows;
-  std::string file("E:\\Data\\data-1.txt");
-  ReadGraph(graphPtr, numRows, file, isDirected);
+  //int numRows;
+  //std::string file("E:\\Data\\data-1.txt");
+  //ReadGraph(graphPtr, numRows, file, isDirected);
 
-  /*
-  std::fstream outStream("E:\\Data\\outData.txt", std::ios_base::out);
-  WriteGraph(graphPtr, outStream, isDirected);
-  outStream.close();
-  */
+  ///*
+  //std::fstream outStream("E:\\Data\\outData.txt", std::ios_base::out);
+  //WriteGraph(graphPtr, outStream, isDirected);
+  //outStream.close();
+  //*/
 
-  int root = 0;
-  bfs(graphPtr, root);
+  //int root = 0;
+  //bfs(graphPtr, root);
+
+  //int dummy;
+  //std::cin >> dummy;
+
+
+  // Bicoloring
+
+  Bicoloring::bicoloring();
 
   int dummy;
   std::cin >> dummy;
 
   return 0;
 }
-
-
-
-//
-//// BiColoring.cpp : Defines the entry point for the console application.
-////
-//
-//#include "stdafx.h"
-//#include <queue>
-//#include <iostream>
-//#include <memory>
-//
-//#define MAXV 50
-//#define MAXDEGREE 50
-//
-//typedef struct Graph {
-//
-//  int edges[MAXV + 1][MAXDEGREE];
-//  int degree[MAXV + 1];
-//  int nVertices;
-//  int nEdges;
-//
-//} Graph;
-//
-//void InitializeGraph(std::shared_ptr<Graph>& graphPtr)
-//{
-//  for (int index = 0; index <= MAXV; index++)
-//    graphPtr->degree[index] = 0;
-//
-//  graphPtr->nVertices = 0;
-//  graphPtr->nEdges = 0;
-//}
-//
-//
-//void ReadGraph(std::shared_ptr<Graph>& graphPtr, std::string file)
-//{
-//  std::fstream inStream(file, std::ios_base::in);
-//
-//  inStream >> graphPtr->nVertices;
-//  inStream >> numRows;
-//
-//  for (int index = 0; index < numRows; index++)
-//  {
-//    int x;
-//    inStream >> x;
-//
-//    int y;
-//    inStream >> y;
-//
-//    InsertEdge(graphPtr, x, y, directed);
-//  }
-//
-//  inStream.close();
-//}
-//
-//int main()
-//{
-//  return 0;
-//}
