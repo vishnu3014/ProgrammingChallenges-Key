@@ -217,3 +217,61 @@ int main()
   return 0;
 }
 
+
+
+//
+//// BiColoring.cpp : Defines the entry point for the console application.
+////
+//
+//#include "stdafx.h"
+//#include <queue>
+//#include <iostream>
+//#include <memory>
+//
+//#define MAXV 50
+//#define MAXDEGREE 50
+//
+//typedef struct Graph {
+//
+//  int edges[MAXV + 1][MAXDEGREE];
+//  int degree[MAXV + 1];
+//  int nVertices;
+//  int nEdges;
+//
+//} Graph;
+//
+//void InitializeGraph(std::shared_ptr<Graph>& graphPtr)
+//{
+//  for (int index = 0; index <= MAXV; index++)
+//    graphPtr->degree[index] = 0;
+//
+//  graphPtr->nVertices = 0;
+//  graphPtr->nEdges = 0;
+//}
+//
+//
+//void ReadGraph(std::shared_ptr<Graph>& graphPtr, std::string file)
+//{
+//  std::fstream inStream(file, std::ios_base::in);
+//
+//  inStream >> graphPtr->nVertices;
+//  inStream >> numRows;
+//
+//  for (int index = 0; index < numRows; index++)
+//  {
+//    int x;
+//    inStream >> x;
+//
+//    int y;
+//    inStream >> y;
+//
+//    InsertEdge(graphPtr, x, y, directed);
+//  }
+//
+//  inStream.close();
+//}
+//
+//int main()
+//{
+//  return 0;
+//}
