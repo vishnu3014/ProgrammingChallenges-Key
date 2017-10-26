@@ -30,6 +30,9 @@
     <ClInclude Include="Bicoloring.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PlayingWheels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bicoloring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayingWheels.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

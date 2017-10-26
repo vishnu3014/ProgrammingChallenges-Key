@@ -9,6 +9,7 @@
 #include <iostream>
 #include <stack>
 #include "Bicoloring.h"
+#include "PlayingWheels.h"
 
 #define MAXV 50
 #define MAXDEGREE 50
@@ -217,8 +218,10 @@ int main()
 
 
   // Bicoloring
+  //Bicoloring::bicoloring();
 
-  Bicoloring::bicoloring();
+  // PlayingWheel
+  PlayingWheels::PlayingWheel();
 
   int dummy;
   std::cin >> dummy;
